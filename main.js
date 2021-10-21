@@ -4,13 +4,20 @@ import 'firebase/firestore';
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: import.meta.env.API_KEY,
-  authDomain: import.meta.env.AUTH_DOMAIN,
-  projectId: import.meta.env.PROJECT_ID,
-  storageBucket: import.meta.env.STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
-  appId: import.meta.env.APP_ID,
-  measurementId: import.meta.env.MEASUREMENT_ID
+  // apiKey: import.meta.env.API_KEY,
+  // authDomain: import.meta.env.AUTH_DOMAIN,
+  // projectId: import.meta.env.PROJECT_ID,
+  // storageBucket: import.meta.env.STORAGE_BUCKET,
+  // messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  // appId: import.meta.env.APP_ID,
+  // measurementId: import.meta.env.MEASUREMENT_ID
+  apiKey: "AIzaSyCv3EexAeJFEwegHpifF7CEMSOq4n5RhVM",
+  authDomain: "webrtc-demo-98a94.firebaseapp.com",
+  projectId: "webrtc-demo-98a94",
+  storageBucket: "webrtc-demo-98a94.appspot.com",
+  messagingSenderId: "346011756076",
+  appId: "1:346011756076:web:f9a5f7a34e5934931cd389",
+  measurementId: "G-FBMJTV117K"
 };
 
 if (!firebase.apps.length) {
@@ -49,7 +56,7 @@ webcamButton.onclick = async () => {
 
   // Push tracks from local stream to peer connection
   localStream.getTracks().forEach((track) => {
-    pc.addTrack(track, localStream);
+    pc.addTrack(track, localStream); 
   });
 
   // Pull tracks from remote stream, add to video stream
@@ -120,7 +127,7 @@ callButton.onclick = async () => {
 // 3. Answer the call with the generated unique ID from callInput
 answerButton.onclick = async () => {
   const callId = callInput.value;
-  const callDoc = firestore.collection('calls').doc(callId);
+  const callDoc = db.collection('calls').doc(callId);
   const answerCandidates = callDoc.collection('answerCandidates');
   const offerCandidates = callDoc.collection('offerCandidates');
 
