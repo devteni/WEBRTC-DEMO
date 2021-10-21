@@ -1,15 +1,11 @@
+// This script is using firebase v9 and has a couple of comms bug in it. 
 import './style.css';
 import { initializeApp } from '@firebase/app';
 import { getFirestore, collection, doc, setDoc, onSnapshot, getDoc, query, where } from 'firebase/firestore';
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCv3EexAeJFEwegHpifF7CEMSOq4n5RhVM",
-  authDomain: "webrtc-demo-98a94.firebaseapp.com",
-  projectId: "webrtc-demo-98a94",
-  storageBucket: "webrtc-demo-98a94.appspot.com",
-  messagingSenderId: "346011756076",
-  appId: "1:346011756076:web:f9a5f7a34e5934931cd389",
-  measurementId: "G-FBMJTV117K"
+ // your config
 };
 
 const app = initializeApp(firebaseConfig);
